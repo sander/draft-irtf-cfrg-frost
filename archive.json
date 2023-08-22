@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2023-08-20T00:37:55.162743+00:00",
+  "timestamp": "2023-08-22T00:36:32.308473+00:00",
   "repo": "cfrg/draft-irtf-cfrg-frost",
   "labels": [
     {
@@ -4699,16 +4699,31 @@
       "id": "I_kwDOEpUZs85srzKU",
       "title": "Old MAX_PARTICIPANTS definition in Appendix",
       "url": "https://github.com/cfrg/draft-irtf-cfrg-frost/issues/453",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "conradoplg",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "Reported by NCC.\r\n\r\nIn the Appendix, there is a reference to the old definition of MAX_PARTICIPANTS:\r\n\r\n> - MAX_PARTICIPANTS, the number of shares to generate, an integer less\r\n  than 2^16.",
       "createdAt": "2023-07-27T00:55:14Z",
-      "updatedAt": "2023-07-27T00:55:14Z",
-      "closedAt": null,
-      "comments": []
+      "updatedAt": "2023-08-21T14:09:10Z",
+      "closedAt": "2023-08-21T14:09:10Z",
+      "comments": [
+        {
+          "author": "mpguerra",
+          "authorAssociation": "NONE",
+          "body": "Should this be closed now after @chelseakomlo 's fix?",
+          "createdAt": "2023-08-21T08:45:02Z",
+          "updatedAt": "2023-08-21T08:45:02Z"
+        },
+        {
+          "author": "chelseakomlo",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Thanks @mpguerra! Closing. ",
+          "createdAt": "2023-08-21T14:09:10Z",
+          "updatedAt": "2023-08-21T14:09:10Z"
+        }
+      ]
     },
     {
       "number": 455,
