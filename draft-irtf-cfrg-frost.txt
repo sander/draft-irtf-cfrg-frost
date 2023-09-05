@@ -5,12 +5,12 @@
 CFRG                                                         D. Connolly
 Internet-Draft                                          Zcash Foundation
 Intended status: Informational                                  C. Komlo
-Expires: 18 February 2024       University of Waterloo, Zcash Foundation
+Expires: 8 March 2024           University of Waterloo, Zcash Foundation
                                                              I. Goldberg
                                                   University of Waterloo
                                                               C. A. Wood
                                                               Cloudflare
-                                                          17 August 2023
+                                                        5 September 2023
 
 
            Two-Round Threshold Schnorr Signatures with FROST
@@ -58,7 +58,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 18 February 2024.
+   This Internet-Draft will expire on 8 March 2024.
 
 Copyright Notice
 
