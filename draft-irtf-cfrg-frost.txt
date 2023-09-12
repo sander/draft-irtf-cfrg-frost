@@ -5,12 +5,12 @@
 CFRG                                                         D. Connolly
 Internet-Draft                                          Zcash Foundation
 Intended status: Informational                                  C. Komlo
-Expires: 8 March 2024           University of Waterloo, Zcash Foundation
+Expires: 15 March 2024          University of Waterloo, Zcash Foundation
                                                              I. Goldberg
                                                   University of Waterloo
                                                               C. A. Wood
                                                               Cloudflare
-                                                        5 September 2023
+                                                       12 September 2023
 
 
            Two-Round Threshold Schnorr Signatures with FROST
@@ -58,7 +58,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 8 March 2024.
+   This Internet-Draft will expire on 15 March 2024.
 
 Copyright Notice
 
@@ -168,6 +168,8 @@ Table of Contents
 
    This document represents the consensus of the Crypto Forum Research
    Group (CFRG).  It is not an IETF product and is not a standard.
+
+   RFC EDITOR: PLEASE REMOVE THE FOLLOWING SUB-SECTION
 
 1.1.  Change Log
 
@@ -772,7 +774,7 @@ def compute_binding_factors(group_public_key, commitment_list, msg):
 
    FROST assumes that the Coordinator and the set of signer participants
    are chosen externally to the protocol.  Note that it is possible to
-   deploy the protocol without a distinguished Coordinator; see
+   deploy the protocol without designating a single Coordinator; see
    Section 7.5 for more information.
 
    FROST produces signatures that can be verified as if they were
@@ -910,7 +912,7 @@ def compute_binding_factors(group_public_key, commitment_list, msg):
      comms = (hiding_nonce_commitment, binding_nonce_commitment)
      return (nonces, comms)
 
-   The outputs nonce and comm from participant P_i SHOULD both be stored
+   The outputs nonce and comm from participant P_i are both stored
    locally and kept for use in the second round.  The nonce value is
    secret and MUST NOT be shared, whereas the public output comm is sent
    to the Coordinator.  The nonce values produced by this function MUST
@@ -1062,7 +1064,7 @@ def aggregate(commitment_list, msg, group_public_key, sig_shares):
    verify_signature_share, is described below.  Recall that the
    Coordinator is configured with "group info" which contains the group
    public key PK and public keys PK_i for each participant, so the
-   group_public_key and PK_i function arguments should come from that
+   group_public_key and PK_i function arguments MUST come from that
    previously stored group info.
 
 Inputs:
@@ -1745,9 +1747,9 @@ def verify_signature_share(
               de Valence, H., Grigg, J., Hamburg, M., Lovecruft, I.,
               Tankersley, G., and F. Valsorda, "The ristretto255 and
               decaf448 Groups", Work in Progress, Internet-Draft, draft-
-              irtf-cfrg-ristretto255-decaf448-07, 3 April 2023,
+              irtf-cfrg-ristretto255-decaf448-08, 5 September 2023,
               <https://datatracker.ietf.org/doc/html/draft-irtf-cfrg-
-              ristretto255-decaf448-07>.
+              ristretto255-decaf448-08>.
 
    [SEC1]     "Elliptic Curve Cryptography, Standards for Efficient
               Cryptography Group, ver. 2", 2009,
