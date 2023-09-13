@@ -1062,7 +1062,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </tr></thead>
 <tfoot><tr>
 <td class="left">Connolly, et al.</td>
-<td class="center">Expires 15 March 2024</td>
+<td class="center">Expires 16 March 2024</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1075,12 +1075,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-irtf-cfrg-frost-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2023-09-12" class="published">12 September 2023</time>
+<time datetime="2023-09-13" class="published">13 September 2023</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2024-03-15">15 March 2024</time></dd>
+<dd class="expires"><time datetime="2024-03-16">16 March 2024</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1145,7 +1145,7 @@ This document is a product of the Crypto Forum Research Group (CFRG) in the IRTF
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 15 March 2024.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 16 March 2024.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -2028,8 +2028,8 @@ to hold and use a signing key share. The Coordinator is an entity with the follo
 externally to the protocol. Note that it is possible to deploy the protocol without
 designating a single Coordinator; see <a href="#no-coordinator" class="auto internal xref">Section 7.5</a> for more information.<a href="#section-5-3" class="pilcrow">¶</a></p>
 <p id="section-5-4">FROST produces signatures that can be verified as if they were produced from a single signer
-using a signing key <code>s</code> with corresponding public key <code>PK</code>, where <code>s</code> is a Scalar
-value and <code>PK = G.ScalarBaseMult(s)</code>. As a threshold signing protocol, the group signing
+using a signing key <code>s</code> with corresponding public key <code>group_public_key</code>, where <code>s</code> is a Scalar
+value and <code>group_public_key = G.ScalarBaseMult(s)</code>. As a threshold signing protocol, the group signing
 key <code>s</code> is Shamir secret-shared amongst each of the <code>MAX_PARTICIPANTS</code> participants
 and used to produce signatures; see <a href="#dep-shamir" class="auto internal xref">Appendix D.1</a> for more information about Shamir secret sharing.
 In particular, FROST assumes each participant is configured with the following information:<a href="#section-5-4" class="pilcrow">¶</a></p>
@@ -2037,18 +2037,18 @@ In particular, FROST assumes each participant is configured with the following i
 <li class="normal" id="section-5-5.1">An identifier, which is a NonZeroScalar value denoted <code>i</code> in the range <code>[1, MAX_PARTICIPANTS]</code>
 and MUST be distinct from the identifier of every other participant.<a href="#section-5-5.1" class="pilcrow">¶</a>
 </li>
-        <li class="normal" id="section-5-5.2">A signing key <code>sk_i</code>, which is a Scalar value representing the i-th Shamir secret share
-of the group signing key <code>s</code>. In particular, <code>sk_i</code> is the value <code>f(i)</code> on a secret
+        <li class="normal" id="section-5-5.2">A signing key <code>secret_key_i</code>, which is a Scalar value representing the i-th Shamir secret share
+of the group signing key <code>s</code>. In particular, <code>secret_key_i</code> is the value <code>f(i)</code> on a secret
 polynomial <code>f</code> of degree <code>(MIN_PARTICIPANTS - 1)</code>, where <code>s</code> is <code>f(0)</code>. The public key
-corresponding to this signing key share is <code>PK_i = G.ScalarBaseMult(sk_i)</code>.<a href="#section-5-5.2" class="pilcrow">¶</a>
+corresponding to this signing key share is <code>public_key_i = G.ScalarBaseMult(secret_key_i)</code>.<a href="#section-5-5.2" class="pilcrow">¶</a>
 </li>
       </ul>
 <p id="section-5-6">The Coordinator and each participant are additionally configured with common group
 information, denoted "group info," which consists of the following:<a href="#section-5-6" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-5-7.1">Group public key, which is an <code>Element</code> in <code>G</code> denoted <code>PK</code>.<a href="#section-5-7.1" class="pilcrow">¶</a>
+<li class="normal" id="section-5-7.1">Group public key, which is an <code>Element</code> in <code>G</code> denoted <code>group_public_key</code>.<a href="#section-5-7.1" class="pilcrow">¶</a>
 </li>
-        <li class="normal" id="section-5-7.2">Public keys <code>PK_i</code> for each participant, which are <code>Element</code> values in <code>G</code> denoted <code>PK_i</code>
+        <li class="normal" id="section-5-7.2">Public keys <code>public_key_i</code> for each participant, which are <code>Element</code> values in <code>G</code> denoted <code>public_key_i</code>
 for each <code>i</code> in <code>[1, MAX_PARTICIPANTS]</code>.<a href="#section-5-7.2" class="pilcrow">¶</a>
 </li>
       </ul>
@@ -2137,16 +2137,16 @@ a pair of secret nonces <code>(hiding_nonce, binding_nonce)</code> and their cor
 <div class="alignLeft art-text artwork" id="section-5.1-2">
 <pre>
 Inputs:
-- sk_i, the secret key share, a Scalar.
+- secret_key_i, the secret key share, a Scalar.
 
 Outputs:
 - (nonce, comm), a tuple of nonce and nonce commitment pairs,
   where each value in the nonce pair is a Scalar and each value in
   the nonce commitment pair is an Element.
 
-def commit(sk_i):
-  hiding_nonce = nonce_generate(sk_i)
-  binding_nonce = nonce_generate(sk_i)
+def commit(secret_key_i):
+  hiding_nonce = nonce_generate(secret_key_i)
+  binding_nonce = nonce_generate(secret_key_i)
   hiding_nonce_commitment = G.ScalarBaseMult(hiding_nonce)
   binding_nonce_commitment = G.ScalarBaseMult(binding_nonce)
   nonces = (hiding_nonce, binding_nonce)
@@ -2186,7 +2186,7 @@ procedure to produce its own signature share.<a href="#section-5.2-3" class="pil
 <pre>
 Inputs:
 - identifier, identifier i of the participant, a NonZeroScalar.
-- sk_i, Signer secret key share, a Scalar.
+- secret_key_i, Signer secret key share, a Scalar.
 - group_public_key, public key corresponding to the group signing
   key, an Element.
 - nonce_i, pair of Scalar values (hiding_nonce, binding_nonce)
@@ -2203,7 +2203,7 @@ Inputs:
 Outputs:
 - sig_share, a signature share, a Scalar.
 
-def sign(identifier, sk_i, group_public_key,
+def sign(identifier, secret_key_i, group_public_key,
          nonce_i, msg, commitment_list):
   # Compute the binding factor(s)
   binding_factor_list = compute_binding_factors(group_public_key, commitment_list, msg)
@@ -2226,7 +2226,7 @@ def sign(identifier, sk_i, group_public_key,
   # Compute the signature share
   (hiding_nonce, binding_nonce) = nonce_i
   sig_share = hiding_nonce + (binding_nonce * binding_factor) +
-      (lambda_i * sk_i * challenge)
+      (lambda_i * secret_key_i * challenge)
 
   return sig_share
 </pre><a href="#section-5.2-4" class="pilcrow">¶</a>
@@ -2299,14 +2299,13 @@ a misbehaving participant is out of scope for this specification; see <a href="#
 about dealing with invalid signatures and misbehaving participants.<a href="#section-5.3-5" class="pilcrow">¶</a></p>
 <p id="section-5.3-6">The function for verifying a signature share, denoted <code>verify_signature_share</code>, is described below.
 Recall that the Coordinator is configured with "group info" which contains
-the group public key <code>PK</code> and public keys <code>PK_i</code> for each participant, so the <code>group_public_key</code> and
-<code>PK_i</code> function arguments MUST come from that previously stored group info.<a href="#section-5.3-6" class="pilcrow">¶</a></p>
+the group public key <code>group_public_key</code> and public keys <code>public_key_i</code> for each participant.<a href="#section-5.3-6" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="section-5.3-7">
 <pre>
 Inputs:
 - identifier, identifier i of the participant, a NonZeroScalar.
-- PK_i, the public key for the i-th participant, where
-  PK_i = G.ScalarBaseMult(sk_i), an Element.
+- public_key_i, the public key for the i-th participant, where
+  public_key_i = G.ScalarBaseMult(secret_key_i), an Element.
 - comm_i, pair of Element values in G
   (hiding_nonce_commitment, binding_nonce_commitment) generated in
   round one from the i-th participant.
@@ -2326,7 +2325,7 @@ Outputs:
 - True if the signature share is valid, and False otherwise.
 
 def verify_signature_share(
-        identifier, PK_i, comm_i, sig_share_i, commitment_list,
+        identifier, public_key_i, comm_i, sig_share_i, commitment_list,
         group_public_key, msg):
   # Compute the binding factors
   binding_factor_list = compute_binding_factors(group_public_key, commitment_list, msg)
@@ -2353,7 +2352,7 @@ def verify_signature_share(
 
   # Compute relation values
   l = G.ScalarBaseMult(sig_share_i)
-  r = comm_share + G.ScalarMult(PK_i, challenge * lambda_i)
+  r = comm_share + G.ScalarMult(public_key_i, challenge * lambda_i)
 
   return l == r
 </pre><a href="#section-5.3-7" class="pilcrow">¶</a>
@@ -2479,8 +2478,8 @@ as a little-endian integer, and reducing the resulting integer modulo
         </ul>
 <p id="section-6.1-3">Normally H2 would also include a domain separator, but for compatibility with <span>[<a href="#RFC8032" class="cite xref">RFC8032</a>]</span>, it is omitted.<a href="#section-6.1-3" class="pilcrow">¶</a></p>
 <p id="section-6.1-4">Signature verification is as specified in <span><a href="https://rfc-editor.org/rfc/rfc8032#section-5.1.7" class="relref">Section 5.1.7</a> of [<a href="#RFC8032" class="cite xref">RFC8032</a>]</span> with the
-constraint that implementations MUST check the group equation <code>[8][z]B = [8]R + [8][c]PK</code>
-(changed to use the notation in this document).<a href="#section-6.1-4" class="pilcrow">¶</a></p>
+constraint that implementations MUST check the group equation <code>[8][z]B = [8]R + [8][c]PK</code>,
+where <code>PK = group_public_key</code> (changed to use the notation in this document).<a href="#section-6.1-4" class="pilcrow">¶</a></p>
 <p id="section-6.1-5">Canonical signature encoding is as specified in <a href="#sig-encoding" class="auto internal xref">Appendix B</a>.<a href="#section-6.1-5" class="pilcrow">¶</a></p>
 </section>
 </div>
@@ -2610,8 +2609,8 @@ modulo 2^446 - 13818066809895115352007386748515426880336692474882178609894547503
         </ul>
 <p id="section-6.3-3">Normally H2 would also include a domain separator, but for compatibility with <span>[<a href="#RFC8032" class="cite xref">RFC8032</a>]</span>, it is omitted.<a href="#section-6.3-3" class="pilcrow">¶</a></p>
 <p id="section-6.3-4">Signature verification is as specified in <span><a href="https://rfc-editor.org/rfc/rfc8032#section-5.2.7" class="relref">Section 5.2.7</a> of [<a href="#RFC8032" class="cite xref">RFC8032</a>]</span> with the
-constraint that implementations MUST check the group equation <code>[4][z]B = [4]R + [4][c]PK</code>
-(changed to use the notation in this document).<a href="#section-6.3-4" class="pilcrow">¶</a></p>
+constraint that implementations MUST check the group equation <code>[4][z]B = [4]R + [4][c]PK</code>,
+where <code>PK = group_public_key</code> (changed to use the notation in this document).<a href="#section-6.3-4" class="pilcrow">¶</a></p>
 <p id="section-6.3-5">Canonical signature encoding is as specified in <a href="#sig-encoding" class="auto internal xref">Appendix B</a>.<a href="#section-6.3-5" class="pilcrow">¶</a></p>
 </section>
 </div>
@@ -3087,21 +3086,21 @@ key as input (as opposed to a key share.)<a href="#appendix-C-2" class="pilcrow"
 <pre>
 Inputs:
 - msg, message to sign, a byte string.
-- sk, secret key, a Scalar.
+- secret_key, secret key, a Scalar.
 
 Outputs:
 - (R, z), a Schnorr signature consisting of an Element R and
   Scalar z.
 
-def prime_order_sign(msg, sk):
+def prime_order_sign(msg, secret_key):
   r = G.RandomScalar()
   R = G.ScalarBaseMult(r)
-  PK = G.ScalarBaseMult(sk)
+  public_key = G.ScalarBaseMult(secret_key)
   comm_enc = G.SerializeElement(R)
-  pk_enc = G.SerializeElement(PK)
-  challenge_input = comm_enc || pk_enc || msg
+  public_key_enc = G.SerializeElement(public_key)
+  challenge_input = comm_enc || public_key_enc || msg
   c = H2(challenge_input)
-  z = r + (c * sk) // Scalar addition and multiplication
+  z = r + (c * secret_key) // Scalar addition and multiplication
   return (R, z)
 </pre><a href="#appendix-C-3" class="pilcrow">¶</a>
 </div>
@@ -3112,19 +3111,19 @@ Specifically, it assumes that signature R component and public key belong to the
 Inputs:
 - msg, signed message, a byte string.
 - sig, a tuple (R, z) output from signature generation.
-- PK, public key, an Element.
+- public_key, public key, an Element.
 
 Outputs:
 - True if signature is valid, and False otherwise.
 
-def prime_order_verify(msg, sig = (R, z), PK):
+def prime_order_verify(msg, sig = (R, z), public_key):
   comm_enc = G.SerializeElement(R)
-  pk_enc = G.SerializeElement(PK)
-  challenge_input = comm_enc || pk_enc || msg
+  public_key_enc = G.SerializeElement(public_key)
+  challenge_input = comm_enc || public_key_enc || msg
   c = H2(challenge_input)
 
   l = G.ScalarBaseMult(z)
-  r = R + G.ScalarMult(PK, c)
+  r = R + G.ScalarMult(public_key, c)
   return l == r
 </pre><a href="#appendix-C-5" class="pilcrow">¶</a>
 </div>
@@ -3342,20 +3341,20 @@ If <code>vss_verify</code> fails, the participant MUST abort the protocol, and f
 <div class="alignLeft art-text artwork" id="appendix-D.2-5">
 <pre>
 Inputs:
-- share_i: A tuple of the form (i, sk_i), where i indicates the
-  participant identifier (a NonZeroScalar), and sk_i the
+- share_i: A tuple of the form (i, secret_key_i), where i indicates the
+  participant identifier (a NonZeroScalar), and secret_key_i the
   participant's secret key, a secret share of the constant term of f,
-  where sk_i is a Scalar.
+  where secret_key_i is a Scalar.
 - vss_commitment, a VSS commitment to a secret polynomial f, a vector
   commitment to each of the coefficients in coeffs, where each
   element of the vector commitment is an Element.
 
 Outputs:
-- True if sk_i is valid, and False otherwise.
+- True if secret_key_i is valid, and False otherwise.
 
 def vss_verify(share_i, vss_commitment)
-  (i, sk_i) = share_i
-  S_i = G.ScalarBaseMult(sk_i)
+  (i, secret_key_i) = share_i
+  S_i = G.ScalarBaseMult(secret_key_i)
   S_i' = G.Identity()
   for j in range(0, MIN_PARTICIPANTS):
     S_i' += G.ScalarMult(vss_commitment[j], pow(i, j))
@@ -3375,20 +3374,20 @@ Inputs:
   element of the vector commitment is an Element.
 
 Outputs:
-- PK, the public key representing the group, an Element.
+- group_public_key, the public key representing the group, an Element.
 - participant_public_keys, a list of MAX_PARTICIPANTS public keys
-  PK_i for i=1,...,MAX_PARTICIPANTS, where each PK_i is the public
+  public_key_i for i=1,...,MAX_PARTICIPANTS, where each public_key_i is the public
   key, an Element, for participant i.
 
 def derive_group_info(MAX_PARTICIPANTS, MIN_PARTICIPANTS, vss_commitment)
-  PK = vss_commitment[0]
+  group_public_key = vss_commitment[0]
   participant_public_keys = []
   for i in range(1, MAX_PARTICIPANTS+1):
-    PK_i = G.Identity()
+    public_key_i = G.Identity()
     for j in range(0, MIN_PARTICIPANTS):
-      PK_i += G.ScalarMult(vss_commitment[j], pow(i, j))
-    participant_public_keys.append(PK_i)
-  return PK, participant_public_keys
+      public_key_i += G.ScalarMult(vss_commitment[j], pow(i, j))
+    participant_public_keys.append(public_key_i)
+  return group_public_key, participant_public_keys
 </pre><a href="#appendix-D.2-7" class="pilcrow">¶</a>
 </div>
 </section>
