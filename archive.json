@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2023-09-07T00:36:30.304357+00:00",
+  "timestamp": "2023-09-14T00:37:05.626054+00:00",
   "repo": "cfrg/draft-irtf-cfrg-frost",
   "labels": [
     {
@@ -4601,9 +4601,17 @@
       "labels": [],
       "body": "From @britram:\r\n\r\n- Should Section 1.1 also have a note to the RFC Editor to remove before publication?\r\n\r\n- I was a little confused by the wording of \u201cwithout a distinguished Coordinator\u201d in section 5. after reading Section 7.5 I take this to mean \u201cwithout designating a Coordinator\u201d; is this a better wording?\r\n\r\n- In section 5.1: \"The outputs nonce and comm from participant P_i should both be stored locally and kept for use in the second round.: \u2014 8174 notwithstanding, isn\u2019t this just an s/should be stored/are stored/? I don\u2019t see how this would practically work otherwise. Same for section 5.3 \u201c the group_public_key and PK_i function arguments should come from that previously stored group info.\u201d",
       "createdAt": "2023-06-26T14:45:17Z",
-      "updatedAt": "2023-09-05T20:23:55Z",
+      "updatedAt": "2023-09-12T02:18:51Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "chelseakomlo",
+          "authorAssociation": "COLLABORATOR",
+          "body": "I addressed all of these in #459, but I changed the terminology to a MUST for \u201c the group_public_key and PK_i function arguments should come from that previously stored group info.\u201d The \"must\" terminology ensures that verification is done correctly with respect to the correct designated public key. ",
+          "createdAt": "2023-09-12T02:18:20Z",
+          "updatedAt": "2023-09-12T02:18:51Z"
+        }
+      ]
     },
     {
       "number": 444,
@@ -4670,7 +4678,7 @@
       "id": "I_kwDOEpUZs85shkPc",
       "title": "Definitions of H3 differ from the FROST paper",
       "url": "https://github.com/cfrg/draft-irtf-cfrg-frost/issues/451",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "kayabaNerve",
       "authorAssociation": "CONTRIBUTOR",
       "assignees": [
@@ -4679,8 +4687,8 @@
       "labels": [],
       "body": "> Let H be a cryptographic hash function mapping to Z\u2217q \r\n\r\n> Sample single-use nonces (dij , eij ) $ \u2190 Z\u2217q \u00d7 Z\u2217q\r\n\r\n> Then, using m and B, all participants derive the \u201cbinding values\u201d \u03c1i, i \u2208 S such that \u03c1i = H1(i, m, B), where H1 is a hash function whose outputs are in Z\u2217q .\r\n\r\n> Let H1, H2 be hash functions whose outputs are in Z\u2217q .\r\n\r\nFROST states the nonces, binding factor hash, and challenge hash must be non-zero. The IETF draft does not require H1/H2/H3 map to the multiplicative group.\r\n\r\nWhile H2 potentially can't have that bound for compatibility reasons, `#dep-binding-factor` outputs `- binding_factor_list, a list of (NonZeroScalar, Scalar) tuples representing the binding factors.`, when this should technically be `(NonZeroScalar, NonZeroScalar)`. For H1, I believe an earlier revision did comment on rejecting zero, yet the current revision doesn't. I'm unsure how those discussions went.",
       "createdAt": "2023-07-25T16:53:12Z",
-      "updatedAt": "2023-09-05T20:23:48Z",
-      "closedAt": null,
+      "updatedAt": "2023-09-12T15:47:50Z",
+      "closedAt": "2023-09-12T02:21:37Z",
       "comments": [
         {
           "author": "kayabaNerve",
@@ -4695,6 +4703,20 @@
           "body": "Re-named to explicitly reference H3\r\n",
           "createdAt": "2023-08-15T21:38:13Z",
           "updatedAt": "2023-08-15T21:38:13Z"
+        },
+        {
+          "author": "chelseakomlo",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Thanks @kayabaNerve - the one-bit difference here is negligible, so I think we can do what is simplest for the implementation, which is keeping H3 as defined in the spec. ",
+          "createdAt": "2023-09-12T02:21:37Z",
+          "updatedAt": "2023-09-12T02:21:37Z"
+        },
+        {
+          "author": "kayabaNerve",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "Sorry, I made a mistake. I meant \"H1\", the binding factor hash. \"H3\" is the nonce, which is handled by my point deserialization note.\r\n\r\nI don't believe this changes the result, yet I wanted to clarify the singular hash I mean to call out in my prior message is H1, not H3.",
+          "createdAt": "2023-09-12T15:47:50Z",
+          "updatedAt": "2023-09-12T15:47:50Z"
         }
       ]
     },
@@ -28149,6 +28171,116 @@
           "body": "",
           "createdAt": "2023-09-05T12:22:56Z",
           "updatedAt": "2023-09-05T12:22:57Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 459,
+      "id": "PR_kwDOEpUZs85aFByZ",
+      "title": "Address ISRG edits",
+      "url": "https://github.com/cfrg/draft-irtf-cfrg-frost/pull/459",
+      "state": "MERGED",
+      "author": "chelseakomlo",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2023-09-12T02:18:32Z",
+      "updatedAt": "2023-09-12T14:29:19Z",
+      "baseRepository": "cfrg/draft-irtf-cfrg-frost",
+      "baseRefName": "master",
+      "baseRefOid": "2211c5879c746b2182573892008b53a94766c4ee",
+      "headRepository": "cfrg/draft-irtf-cfrg-frost",
+      "headRefName": "isrg-review",
+      "headRefOid": "5d0ed9fc7cd5afb28db6bc6fafb01878449190d3",
+      "closedAt": "2023-09-12T14:29:18Z",
+      "mergedAt": "2023-09-12T14:29:18Z",
+      "mergedBy": "chris-wood",
+      "mergeCommit": {
+        "oid": "d02d98cdcb7f951509d505194062fe4f7216e0b8"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOEpUZs85goHj6",
+          "commit": {
+            "abbreviatedOid": "5d0ed9f"
+          },
+          "author": "dconnolly",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2023-09-12T02:20:57Z",
+          "updatedAt": "2023-09-12T02:20:57Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOEpUZs85gs9yU",
+          "commit": {
+            "abbreviatedOid": "5d0ed9f"
+          },
+          "author": "chris-wood",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "I'm going to propose some changes on top of this to avoid the MUST altogether, but let's merge this as-is.",
+          "createdAt": "2023-09-12T14:29:14Z",
+          "updatedAt": "2023-09-12T14:29:14Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 460,
+      "id": "PR_kwDOEpUZs85aIyzr",
+      "title": "Spell out keys",
+      "url": "https://github.com/cfrg/draft-irtf-cfrg-frost/pull/460",
+      "state": "MERGED",
+      "author": "chris-wood",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "This unifies terminology around `secret_key`, `public_key`, and `group_public_key`, rather than using `sk`, `PK`, etc interchangeably. ",
+      "createdAt": "2023-09-12T14:34:15Z",
+      "updatedAt": "2023-09-13T21:52:50Z",
+      "baseRepository": "cfrg/draft-irtf-cfrg-frost",
+      "baseRefName": "master",
+      "baseRefOid": "d02d98cdcb7f951509d505194062fe4f7216e0b8",
+      "headRepository": "cfrg/draft-irtf-cfrg-frost",
+      "headRefName": "caw/spell-out-keys",
+      "headRefOid": "fe83d55a7833a55f8ecb281266c0897a9441b16e",
+      "closedAt": "2023-09-13T20:24:52Z",
+      "mergedAt": "2023-09-13T20:24:52Z",
+      "mergedBy": "chelseakomlo",
+      "mergeCommit": {
+        "oid": "4133010e1bd5329888a819044463a3abadbc224a"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOEpUZs85g4Yfz",
+          "commit": {
+            "abbreviatedOid": "fe83d55"
+          },
+          "author": "chelseakomlo",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "This is a nice change, thanks @chris-wood ! ",
+          "createdAt": "2023-09-13T20:24:42Z",
+          "updatedAt": "2023-09-13T20:24:42Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOEpUZs85g40x1",
+          "commit": {
+            "abbreviatedOid": "fe83d55"
+          },
+          "author": "dconnolly",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "\ud83d\udc4d",
+          "createdAt": "2023-09-13T21:52:49Z",
+          "updatedAt": "2023-09-13T21:52:49Z",
           "comments": []
         }
       ]
