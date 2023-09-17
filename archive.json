@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2023-09-14T00:37:05.626054+00:00",
+  "timestamp": "2023-09-17T00:39:46.609416+00:00",
   "repo": "cfrg/draft-irtf-cfrg-frost",
   "labels": [
     {
@@ -4592,7 +4592,7 @@
       "id": "I_kwDOEpUZs85py92T",
       "title": "IRSG review ",
       "url": "https://github.com/cfrg/draft-irtf-cfrg-frost/issues/440",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "chris-wood",
       "authorAssociation": "COLLABORATOR",
       "assignees": [
@@ -4601,8 +4601,8 @@
       "labels": [],
       "body": "From @britram:\r\n\r\n- Should Section 1.1 also have a note to the RFC Editor to remove before publication?\r\n\r\n- I was a little confused by the wording of \u201cwithout a distinguished Coordinator\u201d in section 5. after reading Section 7.5 I take this to mean \u201cwithout designating a Coordinator\u201d; is this a better wording?\r\n\r\n- In section 5.1: \"The outputs nonce and comm from participant P_i should both be stored locally and kept for use in the second round.: \u2014 8174 notwithstanding, isn\u2019t this just an s/should be stored/are stored/? I don\u2019t see how this would practically work otherwise. Same for section 5.3 \u201c the group_public_key and PK_i function arguments should come from that previously stored group info.\u201d",
       "createdAt": "2023-06-26T14:45:17Z",
-      "updatedAt": "2023-09-12T02:18:51Z",
-      "closedAt": null,
+      "updatedAt": "2023-09-14T19:42:50Z",
+      "closedAt": "2023-09-14T19:42:50Z",
       "comments": [
         {
           "author": "chelseakomlo",
@@ -4610,6 +4610,13 @@
           "body": "I addressed all of these in #459, but I changed the terminology to a MUST for \u201c the group_public_key and PK_i function arguments should come from that previously stored group info.\u201d The \"must\" terminology ensures that verification is done correctly with respect to the correct designated public key. ",
           "createdAt": "2023-09-12T02:18:20Z",
           "updatedAt": "2023-09-12T02:18:51Z"
+        },
+        {
+          "author": "chelseakomlo",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Closed by #459  and #460 ",
+          "createdAt": "2023-09-14T19:42:50Z",
+          "updatedAt": "2023-09-14T19:42:50Z"
         }
       ]
     },
