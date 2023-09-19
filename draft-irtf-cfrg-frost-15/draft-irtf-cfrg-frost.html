@@ -20,12 +20,12 @@ that can be verified with an Edwards-Curve Digital Signature Algorithm (EdDSA, a
 compliant verifier. However, unlike EdDSA, the signatures produced by FROST are not deterministic.
 This document is a product of the Crypto Forum Research Group (CFRG) in the IRTF. 
     " name="description">
-<meta content="xml2rfc 3.17.5" name="generator">
+<meta content="xml2rfc 3.18.0" name="generator">
 <meta content="Internet-Draft" name="keyword">
 <meta content="draft-irtf-cfrg-frost-latest" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.17.5
-    Python 3.11.4
+  xml2rfc 3.18.0
+    Python 3.11.5
     ConfigArgParse 1.5.3
     google-i18n-address 3.1.0
     intervaltree 3.1.0
@@ -1058,11 +1058,11 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">FROST</td>
-<td class="right">August 2023</td>
+<td class="right">September 2023</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Connolly, et al.</td>
-<td class="center">Expires 16 February 2024</td>
+<td class="center">Expires 22 March 2024</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1075,12 +1075,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-irtf-cfrg-frost-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2023-08-15" class="published">15 August 2023</time>
+<time datetime="2023-09-19" class="published">19 September 2023</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2024-02-16">16 February 2024</time></dd>
+<dd class="expires"><time datetime="2024-03-22">22 March 2024</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1145,7 +1145,7 @@ This document is a product of the Crypto Forum Research Group (CFRG) in the IRTF
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 16 February 2024.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 22 March 2024.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1388,6 +1388,7 @@ for a complete key-recovery attack in multi-party discrete logarithm-based signa
 key generation with a trusted dealer is specified in <a href="#dep-dealer" class="auto internal xref">Appendix D</a>.<a href="#section-1-5" class="pilcrow">¶</a></p>
 <p id="section-1-6">This document represents the consensus of the Crypto Forum Research
 Group (CFRG). It is not an IETF product and is not a standard.<a href="#section-1-6" class="pilcrow">¶</a></p>
+<p id="section-1-7">RFC EDITOR: PLEASE REMOVE THE FOLLOWING SUB-SECTION<a href="#section-1-7" class="pilcrow">¶</a></p>
 <div id="change-log">
 <section id="section-1.1">
         <h3 id="name-change-log">
@@ -2025,7 +2026,7 @@ to hold and use a signing key share. The Coordinator is an entity with the follo
       </ol>
 <p id="section-5-3">FROST assumes that the Coordinator and the set of signer participants are chosen
 externally to the protocol. Note that it is possible to deploy the protocol without
-a distinguished Coordinator; see <a href="#no-coordinator" class="auto internal xref">Section 7.5</a> for more information.<a href="#section-5-3" class="pilcrow">¶</a></p>
+designating a single Coordinator; see <a href="#no-coordinator" class="auto internal xref">Section 7.5</a> for more information.<a href="#section-5-3" class="pilcrow">¶</a></p>
 <p id="section-5-4">FROST produces signatures that can be verified as if they were produced from a single signer
 using a signing key <code>s</code> with corresponding public key <code>PK</code>, where <code>s</code> is a Scalar
 value and <code>PK = G.ScalarBaseMult(s)</code>. As a threshold signing protocol, the group signing
@@ -2153,7 +2154,7 @@ def commit(sk_i):
   return (nonces, comms)
 </pre><a href="#section-5.1-2" class="pilcrow">¶</a>
 </div>
-<p id="section-5.1-3">The outputs <code>nonce</code> and <code>comm</code> from participant <code>P_i</code> SHOULD both be stored locally and
+<p id="section-5.1-3">The outputs <code>nonce</code> and <code>comm</code> from participant <code>P_i</code> are both stored locally and
 kept for use in the second round. The <code>nonce</code> value is secret and MUST NOT be shared, whereas
 the public output <code>comm</code> is sent to the Coordinator. The nonce values produced by this
 function MUST NOT be used in more than one invocation of <code>sign</code>, and the nonces MUST be generated
@@ -2299,7 +2300,7 @@ about dealing with invalid signatures and misbehaving participants.<a href="#sec
 <p id="section-5.3-6">The function for verifying a signature share, denoted <code>verify_signature_share</code>, is described below.
 Recall that the Coordinator is configured with "group info" which contains
 the group public key <code>PK</code> and public keys <code>PK_i</code> for each participant, so the <code>group_public_key</code> and
-<code>PK_i</code> function arguments should come from that previously stored group info.<a href="#section-5.3-6" class="pilcrow">¶</a></p>
+<code>PK_i</code> function arguments MUST come from that previously stored group info.<a href="#section-5.3-6" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="section-5.3-7">
 <pre>
 Inputs:
@@ -2524,13 +2525,13 @@ top three bits of the input MUST be zero.<a href="#section-6.2-2.1.2.7" class="p
             <p id="section-6.2-2.2.1">Hash (<code>H</code>): SHA-512, which has 64 bytes of output<a href="#section-6.2-2.2.1" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-6.2-2.2.2.1">H1(m): Implemented by computing H(contextString || "rho" || m) and mapping the
-output to a Scalar as described in <span>[<a href="#RISTRETTO" class="cite xref">RISTRETTO</a>], <a href="https://datatracker.ietf.org/doc/html/draft-irtf-cfrg-ristretto255-decaf448-07#section-4.4" class="relref">Section 4.4</a></span>.<a href="#section-6.2-2.2.2.1" class="pilcrow">¶</a>
+output to a Scalar as described in <span>[<a href="#RISTRETTO" class="cite xref">RISTRETTO</a>], <a href="https://datatracker.ietf.org/doc/html/draft-irtf-cfrg-ristretto255-decaf448-08#section-4.4" class="relref">Section 4.4</a></span>.<a href="#section-6.2-2.2.2.1" class="pilcrow">¶</a>
 </li>
               <li class="normal" id="section-6.2-2.2.2.2">H2(m): Implemented by computing H(contextString || "chal" || m) and mapping the
-output to a Scalar as described in <span>[<a href="#RISTRETTO" class="cite xref">RISTRETTO</a>], <a href="https://datatracker.ietf.org/doc/html/draft-irtf-cfrg-ristretto255-decaf448-07#section-4.4" class="relref">Section 4.4</a></span>.<a href="#section-6.2-2.2.2.2" class="pilcrow">¶</a>
+output to a Scalar as described in <span>[<a href="#RISTRETTO" class="cite xref">RISTRETTO</a>], <a href="https://datatracker.ietf.org/doc/html/draft-irtf-cfrg-ristretto255-decaf448-08#section-4.4" class="relref">Section 4.4</a></span>.<a href="#section-6.2-2.2.2.2" class="pilcrow">¶</a>
 </li>
               <li class="normal" id="section-6.2-2.2.2.3">H3(m): Implemented by computing H(contextString || "nonce" || m) and mapping the
-output to a Scalar as described in <span>[<a href="#RISTRETTO" class="cite xref">RISTRETTO</a>], <a href="https://datatracker.ietf.org/doc/html/draft-irtf-cfrg-ristretto255-decaf448-07#section-4.4" class="relref">Section 4.4</a></span>.<a href="#section-6.2-2.2.2.3" class="pilcrow">¶</a>
+output to a Scalar as described in <span>[<a href="#RISTRETTO" class="cite xref">RISTRETTO</a>], <a href="https://datatracker.ietf.org/doc/html/draft-irtf-cfrg-ristretto255-decaf448-08#section-4.4" class="relref">Section 4.4</a></span>.<a href="#section-6.2-2.2.2.3" class="pilcrow">¶</a>
 </li>
               <li class="normal" id="section-6.2-2.2.2.4">H4(m): Implemented by computing H(contextString || "msg" || m).<a href="#section-6.2-2.2.2.4" class="pilcrow">¶</a>
 </li>
@@ -2974,7 +2975,7 @@ participants do not operate as signing oracles for arbitrary messages.<a href="#
 <dd class="break"></dd>
 <dt id="RISTRETTO">[RISTRETTO]</dt>
         <dd>
-<span class="refAuthor">de Valence, H.</span>, <span class="refAuthor">Grigg, J.</span>, <span class="refAuthor">Hamburg, M.</span>, <span class="refAuthor">Lovecruft, I.</span>, <span class="refAuthor">Tankersley, G.</span>, and <span class="refAuthor">F. Valsorda</span>, <span class="refTitle">"The ristretto255 and decaf448 Groups"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-irtf-cfrg-ristretto255-decaf448-07</span>, <time datetime="2023-04-03" class="refDate">3 April 2023</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-irtf-cfrg-ristretto255-decaf448-07">https://datatracker.ietf.org/doc/html/draft-irtf-cfrg-ristretto255-decaf448-07</a>&gt;</span>. </dd>
+<span class="refAuthor">de Valence, H.</span>, <span class="refAuthor">Grigg, J.</span>, <span class="refAuthor">Hamburg, M.</span>, <span class="refAuthor">Lovecruft, I.</span>, <span class="refAuthor">Tankersley, G.</span>, and <span class="refAuthor">F. Valsorda</span>, <span class="refTitle">"The ristretto255 and decaf448 Groups"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-irtf-cfrg-ristretto255-decaf448-08</span>, <time datetime="2023-09-05" class="refDate">5 September 2023</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-irtf-cfrg-ristretto255-decaf448-08">https://datatracker.ietf.org/doc/html/draft-irtf-cfrg-ristretto255-decaf448-08</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="SEC1">[SEC1]</dt>
         <dd>
@@ -3202,7 +3203,7 @@ Inputs:
   generated Scalars, not including the 0th coefficient of the
   polynomial.
 - MAX_PARTICIPANTS, the number of shares to generate, an integer less
-  than 2^16.
+  than the group order.
 
 Outputs:
 - secret_key_shares, A list of MAX_PARTICIPANTS number of secret
