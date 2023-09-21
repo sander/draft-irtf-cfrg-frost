@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2023-09-17T00:39:46.609416+00:00",
+  "timestamp": "2023-09-21T00:37:24.296380+00:00",
   "repo": "cfrg/draft-irtf-cfrg-frost",
   "labels": [
     {
@@ -4574,7 +4574,7 @@
       "id": "I_kwDOEpUZs85mCvlS",
       "title": "Update keygen with trusted dealer to spit out identifiers per secret share",
       "url": "https://github.com/cfrg/draft-irtf-cfrg-frost/issues/436",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "dconnolly",
       "authorAssociation": "COLLABORATOR",
       "assignees": [
@@ -4583,9 +4583,17 @@
       "labels": [],
       "body": "We depend on identifiers as NonZeroScalars throughout the body of the text but our only procedure in the document to generate shares does not mention these, and in the prose mentions integers instead of NonZeroScalars, which we should fix",
       "createdAt": "2023-05-16T13:07:44Z",
-      "updatedAt": "2023-08-15T22:00:50Z",
-      "closedAt": null,
-      "comments": []
+      "updatedAt": "2023-09-20T08:58:52Z",
+      "closedAt": "2023-09-20T08:58:51Z",
+      "comments": [
+        {
+          "author": "dconnolly",
+          "authorAssociation": "COLLABORATOR",
+          "body": "It looks like this has been fixed in the interim! Closing",
+          "createdAt": "2023-09-20T08:58:51Z",
+          "updatedAt": "2023-09-20T08:58:51Z"
+        }
+      ]
     },
     {
       "number": 440,
@@ -28291,6 +28299,32 @@
           "comments": []
         }
       ]
+    },
+    {
+      "number": 461,
+      "id": "PR_kwDOEpUZs85awkZN",
+      "title": "Update 'removing the coordinator role' section to align with existing 'signature share aggregation' section",
+      "url": "https://github.com/cfrg/draft-irtf-cfrg-frost/pull/461",
+      "state": "OPEN",
+      "author": "dconnolly",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Resolves https://github.com/cfrg/draft-irtf-cfrg-frost/issues/452\r\n\r\n@kevin-henry-ncc, thoughts?",
+      "createdAt": "2023-09-20T08:52:49Z",
+      "updatedAt": "2023-09-20T08:52:49Z",
+      "baseRepository": "cfrg/draft-irtf-cfrg-frost",
+      "baseRefName": "master",
+      "baseRefOid": "4133010e1bd5329888a819044463a3abadbc224a",
+      "headRepository": "cfrg/draft-irtf-cfrg-frost",
+      "headRefName": "dconnolly-patch-8",
+      "headRefOid": "72cb7b50dbe4406524b5b98ac1d63a9bc3657db2",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
     }
   ]
 }
