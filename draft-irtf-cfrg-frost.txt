@@ -5,12 +5,12 @@
 CFRG                                                         D. Connolly
 Internet-Draft                                          Zcash Foundation
 Intended status: Informational                                  C. Komlo
-Expires: 16 March 2024          University of Waterloo, Zcash Foundation
+Expires: 24 March 2024          University of Waterloo, Zcash Foundation
                                                              I. Goldberg
                                                   University of Waterloo
                                                               C. A. Wood
                                                               Cloudflare
-                                                       13 September 2023
+                                                       21 September 2023
 
 
            Two-Round Threshold Schnorr Signatures with FROST
@@ -58,7 +58,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 16 March 2024.
+   This Internet-Draft will expire on 24 March 2024.
 
 Copyright Notice
 
@@ -1656,11 +1656,15 @@ def verify_signature_share(
    commitment to the Coordinator, every participant instead will publish
    this commitment to every other participant.  Then, in the second
    round, participants will already have sufficient information to
-   perform signing.  They will directly perform sign().  All
-   participants will then publish their signature shares to one another.
-   After having received all signature shares from all other
-   participants, each participant will then perform
-   verify_signature_share and then aggregate directly.
+   perform signing.  After invoking sign(), each participant then
+   publishes its signature share to the other participants.  After
+   having received all signature shares from all other participants,
+   each participant then aggregates them using aggregate() and then
+   verifies the signature using the group public key.  If aggregate
+   signature verification fails, each participant can verify each
+   signature share individually to identify and act on misbehaving
+   participants; see Section 5.4 for more information about dealing with
+   invalid signatures and misbehaving participants.
 
    The requirements for the underlying network channel remain the same
    in the setting where all participants play the role of the
