@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2023-09-21T00:37:24.296380+00:00",
+  "timestamp": "2023-09-24T00:39:53.577137+00:00",
   "repo": "cfrg/draft-irtf-cfrg-frost",
   "labels": [
     {
@@ -4740,7 +4740,7 @@
       "id": "I_kwDOEpUZs85spiYL",
       "title": "Guidance on removing the coordinator role does not reflect recent changes",
       "url": "https://github.com/cfrg/draft-irtf-cfrg-frost/issues/452",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "kevin-henry-ncc",
       "authorAssociation": "NONE",
       "assignees": [
@@ -4749,8 +4749,8 @@
       "labels": [],
       "body": "In draft 11 of FROST, Section 5.3 is titled \"Signature Share Verification and Aggregation\" and suggests that the intended sequence of operations is for the coordinator to verify each share using `verify_signature_share()` and then aggregate the signature using `aggregate()` to be sent to participants:\r\n\r\nDraft 11 approach:\r\n1. Verify individual shares\r\n2. Aggregate signature\r\n3. Distribute to Participants\r\n\r\nIn draft 14 of FROST, Section 5.3 is titled \"Signature Share Aggregation\" and suggests that the coordinator will aggregate the signature using `aggregate()` and SHOULD verify it using the group key. Share verification and identifying errors are left as an optional process if this step fails:\r\n\r\nDraft 14 approach:\r\n1. Aggregate signature\r\n2. Validate signature\r\n3. If success, distribute to Participants\r\n4. If fail, optionally verify individual shares\r\n\r\nDespite this change Section 7.5 \"Removing the Coordinator Role\" has not been revised and seems much more aligned with the previous approach in draft 11. It also suggests that participants should verify shares and aggregate but does not include the new SHOULD requirement to verify the signature.\r\n\r\n> All participants will then publish their signature shares to one another. After having received all signature shares from all other participants, each participant will then perform\u00a0`verify_signature_share`\u00a0and then\u00a0`aggregate`\u00a0directly.\r\n\r\nI think most implementers would make sensible decisions, but from a review/audit perspective I believe the current guidance in 7.5 is a little ambiguous, and I would anticipate different audiences to come to different conclusions on how a Coordinator-free implementation should behave. One may implement the process described in 7.5, and another may implement the process described in 5.3, and both may claim they're following the spec.\r\n\r\nI would recommend revising Section 7.5 to better reflect the intended/current approach, or to justify why the sequence of events might be different with or without a Coordinator. The preferred resolution would be to ensure the aggregate+validate process in Section 5.3 is clear, and simply suggest that each participant performs the aggregate+validate process as described in 5.3.",
       "createdAt": "2023-07-26T17:08:02Z",
-      "updatedAt": "2023-09-05T19:25:10Z",
-      "closedAt": null,
+      "updatedAt": "2023-09-21T20:50:48Z",
+      "closedAt": "2023-09-21T20:50:48Z",
       "comments": []
     },
     {
@@ -28305,26 +28305,103 @@
       "id": "PR_kwDOEpUZs85awkZN",
       "title": "Update 'removing the coordinator role' section to align with existing 'signature share aggregation' section",
       "url": "https://github.com/cfrg/draft-irtf-cfrg-frost/pull/461",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "dconnolly",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "Resolves https://github.com/cfrg/draft-irtf-cfrg-frost/issues/452\r\n\r\n@kevin-henry-ncc, thoughts?",
       "createdAt": "2023-09-20T08:52:49Z",
-      "updatedAt": "2023-09-20T08:52:49Z",
+      "updatedAt": "2023-09-21T17:12:35Z",
       "baseRepository": "cfrg/draft-irtf-cfrg-frost",
       "baseRefName": "master",
       "baseRefOid": "4133010e1bd5329888a819044463a3abadbc224a",
       "headRepository": "cfrg/draft-irtf-cfrg-frost",
       "headRefName": "dconnolly-patch-8",
       "headRefOid": "72cb7b50dbe4406524b5b98ac1d63a9bc3657db2",
-      "closedAt": null,
+      "closedAt": "2023-09-21T17:12:31Z",
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
+      "comments": [
+        {
+          "author": "dconnolly",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> Since this is guidance, I don't think the use of normative language here is appropriate. I put up an alternative in #462 that I think addresses the issue without being so rigid. Please have a look!\r\n\r\nLooks good! Closing this one in favor of that one ",
+          "createdAt": "2023-09-21T17:12:28Z",
+          "updatedAt": "2023-09-21T17:12:28Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOEpUZs85hmg2p",
+          "commit": {
+            "abbreviatedOid": "72cb7b5"
+          },
+          "author": "chris-wood",
+          "authorAssociation": "COLLABORATOR",
+          "state": "CHANGES_REQUESTED",
+          "body": "Since this is guidance, I don't think the use of normative language here is appropriate. I put up an alternative in #462 that I think addresses the issue without being so rigid. Please have a look!",
+          "createdAt": "2023-09-21T10:29:04Z",
+          "updatedAt": "2023-09-21T10:29:04Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 462,
+      "id": "PR_kwDOEpUZs85a3xY7",
+      "title": "Rearrange no coordinator steps",
+      "url": "https://github.com/cfrg/draft-irtf-cfrg-frost/pull/462",
+      "state": "MERGED",
+      "author": "chris-wood",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Alternative to #461, which avoids use of normative language.\r\n\r\nCloses #452 \r\n\r\ncc @dconnolly @kevin-henry-ncc",
+      "createdAt": "2023-09-21T10:27:45Z",
+      "updatedAt": "2023-09-21T20:50:47Z",
+      "baseRepository": "cfrg/draft-irtf-cfrg-frost",
+      "baseRefName": "master",
+      "baseRefOid": "4133010e1bd5329888a819044463a3abadbc224a",
+      "headRepository": "cfrg/draft-irtf-cfrg-frost",
+      "headRefName": "chris-wood-patch-5",
+      "headRefOid": "9dd58f449d2a3d26e8cc0104a8fc87748ebbf3e2",
+      "closedAt": "2023-09-21T20:50:47Z",
+      "mergedAt": "2023-09-21T20:50:47Z",
+      "mergedBy": "chris-wood",
+      "mergeCommit": {
+        "oid": "c13c2d089be94c848cadc18eeada457cb6b0417a"
+      },
       "comments": [],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDOEpUZs85hpzxt",
+          "commit": {
+            "abbreviatedOid": "9dd58f4"
+          },
+          "author": "dconnolly",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2023-09-21T17:12:16Z",
+          "updatedAt": "2023-09-21T17:12:16Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOEpUZs85hp2am",
+          "commit": {
+            "abbreviatedOid": "9dd58f4"
+          },
+          "author": "kevin-henry-ncc",
+          "authorAssociation": "NONE",
+          "state": "APPROVED",
+          "body": "Looks good to me. Thanks for considering the suggestion.",
+          "createdAt": "2023-09-21T17:19:09Z",
+          "updatedAt": "2023-09-21T17:19:09Z",
+          "comments": []
+        }
+      ]
     }
   ]
 }
