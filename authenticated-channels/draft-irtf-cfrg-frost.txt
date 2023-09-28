@@ -1567,7 +1567,7 @@ def verify_signature_share(
    and communication at the time of signing can be performed over a
    public channel, as long as it is reliable.  To give the guarantee of
    identifying misbehaving signers, the network channel should be
-   additionally authenticated.
+   additionally authenticated; see Section 5.4 for more discussion.
 
    FROST provides security against denial of service attacks under the
    following assumptions:
