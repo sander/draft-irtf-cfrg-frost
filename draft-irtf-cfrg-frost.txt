@@ -5,12 +5,12 @@
 CFRG                                                         D. Connolly
 Internet-Draft                                          Zcash Foundation
 Intended status: Informational                                  C. Komlo
-Expires: 24 March 2024          University of Waterloo, Zcash Foundation
+Expires: 31 March 2024          University of Waterloo, Zcash Foundation
                                                              I. Goldberg
                                                   University of Waterloo
                                                               C. A. Wood
                                                               Cloudflare
-                                                       21 September 2023
+                                                       28 September 2023
 
 
            Two-Round Threshold Schnorr Signatures with FROST
@@ -58,7 +58,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 24 March 2024.
+   This Internet-Draft will expire on 31 March 2024.
 
 Copyright Notice
 
@@ -1565,7 +1565,9 @@ def verify_signature_share(
 
    Note that the Coordinator is not trusted with any private information
    and communication at the time of signing can be performed over a
-   public channel, as long as it is authenticated and reliable.
+   public channel, as long as it is reliable.  To give the guarantee of
+   identifying misbehaving signers, the network channel should be
+   additionally authenticated; see Section 5.4 for more discussion.
 
    FROST provides security against denial of service attacks under the
    following assumptions:
