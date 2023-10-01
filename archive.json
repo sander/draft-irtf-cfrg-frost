@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2023-09-24T00:39:53.577137+00:00",
+  "timestamp": "2023-10-01T00:43:20.505615+00:00",
   "repo": "cfrg/draft-irtf-cfrg-frost",
   "labels": [
     {
@@ -28399,6 +28399,94 @@
           "body": "Looks good to me. Thanks for considering the suggestion.",
           "createdAt": "2023-09-21T17:19:09Z",
           "updatedAt": "2023-09-21T17:19:09Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 463,
+      "id": "PR_kwDOEpUZs85bdyhL",
+      "title": "Remove confusion about why channels are authenticated; it is for identifying misbehaving parties",
+      "url": "https://github.com/cfrg/draft-irtf-cfrg-frost/pull/463",
+      "state": "MERGED",
+      "author": "chelseakomlo",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "cc @conradoplg ",
+      "createdAt": "2023-09-28T16:45:29Z",
+      "updatedAt": "2023-09-28T19:21:55Z",
+      "baseRepository": "cfrg/draft-irtf-cfrg-frost",
+      "baseRefName": "master",
+      "baseRefOid": "c13c2d089be94c848cadc18eeada457cb6b0417a",
+      "headRepository": "cfrg/draft-irtf-cfrg-frost",
+      "headRefName": "authenticated-channels",
+      "headRefOid": "b980889bd0e3f81d3d6897fbbfff99afc179d5b2",
+      "closedAt": "2023-09-28T19:21:52Z",
+      "mergedAt": "2023-09-28T19:21:52Z",
+      "mergedBy": "dconnolly",
+      "mergeCommit": {
+        "oid": "127452b93acb3094a6f659d059550df5618c2714"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOEpUZs85iUWoj",
+          "commit": {
+            "abbreviatedOid": "fe9b884"
+          },
+          "author": "chris-wood",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-09-28T18:40:45Z",
+          "updatedAt": "2023-09-28T18:40:45Z",
+          "comments": [
+            {
+              "originalPosition": 6,
+              "body": "```suggestion\r\nsigners, the network channel should be additionally authenticated;\r\nsee {{abort}} for more discussion.\r\n```",
+              "createdAt": "2023-09-28T18:40:45Z",
+              "updatedAt": "2023-09-28T18:40:45Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOEpUZs85iUWqA",
+          "commit": {
+            "abbreviatedOid": "fe9b884"
+          },
+          "author": "chris-wood",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2023-09-28T18:40:49Z",
+          "updatedAt": "2023-09-28T18:40:49Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOEpUZs85iUbjh",
+          "commit": {
+            "abbreviatedOid": "fe9b884"
+          },
+          "author": "conradoplg",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2023-09-28T18:54:45Z",
+          "updatedAt": "2023-09-28T18:54:45Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOEpUZs85iUkv-",
+          "commit": {
+            "abbreviatedOid": "b980889"
+          },
+          "author": "dconnolly",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2023-09-28T19:21:34Z",
+          "updatedAt": "2023-09-28T19:21:34Z",
           "comments": []
         }
       ]
