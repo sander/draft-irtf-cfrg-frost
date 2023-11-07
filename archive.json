@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2023-10-10T00:37:39.818555+00:00",
+  "timestamp": "2023-11-07T00:38:58.734421+00:00",
   "repo": "cfrg/draft-irtf-cfrg-frost",
   "labels": [
     {
@@ -341,7 +341,7 @@
       "url": "https://github.com/cfrg/draft-irtf-cfrg-frost/issues/20",
       "state": "CLOSED",
       "author": "isislovecruft",
-      "authorAssociation": "COLLABORATOR",
+      "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [
         "interop"
@@ -1073,7 +1073,7 @@
       "comments": [
         {
           "author": "isislovecruft",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "2^16-1 because participant index cannot be zero.",
           "createdAt": "2022-01-28T22:05:22Z",
           "updatedAt": "2022-01-28T22:05:22Z"
@@ -2262,7 +2262,7 @@
         },
         {
           "author": "conradoplg",
-          "authorAssociation": "NONE",
+          "authorAssociation": "COLLABORATOR",
           "body": "Not using a wide reduction also introduces a noticeable bias in the output, doesn't it? (Not sure what are the implications...)",
           "createdAt": "2022-06-13T18:57:53Z",
           "updatedAt": "2022-06-13T18:57:53Z"
@@ -2426,7 +2426,7 @@
         },
         {
           "author": "conradoplg",
-          "authorAssociation": "CONTRIBUTOR",
+          "authorAssociation": "COLLABORATOR",
           "body": "@kayabaNerve if you don't mind please wait while we discuss this (I don't want to risk wasting your time). I think the main reason we closed this is because we want to compatible with RFC 8032, and torsion-clearing won't be",
           "createdAt": "2022-09-27T22:25:15Z",
           "updatedAt": "2022-09-27T22:25:25Z"
@@ -3894,7 +3894,7 @@
         },
         {
           "author": "armfazh",
-          "authorAssociation": "NONE",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "How about this?\r\n\r\n```diff\r\n-  - points, a set of t points with distinct x coordinates on a polynomial f,\r\n-    each a tuple of two Scalar values representing the x and y coordinates\r\n+  - points, a set of t points (x,y) with distinct x coordinates on a polynomial f,\r\n+    each coordinate is a Scalar value.\r\n```",
           "createdAt": "2022-12-14T19:02:48Z",
           "updatedAt": "2022-12-14T19:02:48Z"
@@ -3960,7 +3960,7 @@
         },
         {
           "author": "armfazh",
-          "authorAssociation": "NONE",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "That's fine. Then, such a relation should be explicitly stated in the document. I pointed this in other comment.\r\n\r\n",
           "createdAt": "2022-12-14T18:50:34Z",
           "updatedAt": "2022-12-14T18:50:34Z"
@@ -4012,7 +4012,7 @@
         },
         {
           "author": "armfazh",
-          "authorAssociation": "NONE",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "sounds good.",
           "createdAt": "2022-12-13T21:38:35Z",
           "updatedAt": "2022-12-13T21:38:35Z"
@@ -4817,7 +4817,7 @@
       "url": "https://github.com/cfrg/draft-irtf-cfrg-frost/pull/1",
       "state": "MERGED",
       "author": "isislovecruft",
-      "authorAssociation": "COLLABORATOR",
+      "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "",
@@ -5006,7 +5006,7 @@
       "url": "https://github.com/cfrg/draft-irtf-cfrg-frost/pull/7",
       "state": "MERGED",
       "author": "teor2345",
-      "authorAssociation": "COLLABORATOR",
+      "authorAssociation": "CONTRIBUTOR",
       "assignees": [
         "teor2345"
       ],
@@ -5034,7 +5034,7 @@
             "abbreviatedOid": "5ddda99"
           },
           "author": "teor2345",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2021-08-09T23:44:25Z",
@@ -5054,7 +5054,7 @@
             "abbreviatedOid": "5ddda99"
           },
           "author": "teor2345",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2021-08-09T23:45:02Z",
@@ -5664,7 +5664,7 @@
       "url": "https://github.com/cfrg/draft-irtf-cfrg-frost/pull/35",
       "state": "MERGED",
       "author": "teor2345",
-      "authorAssociation": "COLLABORATOR",
+      "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "This removes teor from the CODEOWNERS file, so I don't get added as a reviewer to every PR.",
@@ -10333,7 +10333,7 @@
       "url": "https://github.com/cfrg/draft-irtf-cfrg-frost/pull/116",
       "state": "MERGED",
       "author": "isislovecruft",
-      "authorAssociation": "COLLABORATOR",
+      "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "Commas are required when a subordinate clause comes before the main body of a sentence, but are not to be used when the subordinate clause occurs afterwards.",
@@ -10395,7 +10395,7 @@
       "url": "https://github.com/cfrg/draft-irtf-cfrg-frost/pull/118",
       "state": "MERGED",
       "author": "isislovecruft",
-      "authorAssociation": "COLLABORATOR",
+      "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "* CLOSES #68 \r\n\r\nI also went over the matrice of malleability issues in https://eprint.iacr.org/2020/1244.pdf again to double check compatibility versus malleability issues.",
@@ -16093,7 +16093,7 @@
             "abbreviatedOid": "71df37a"
           },
           "author": "conradoplg",
-          "authorAssociation": "NONE",
+          "authorAssociation": "COLLABORATOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2022-07-05T14:06:33Z",
@@ -16456,7 +16456,7 @@
             "abbreviatedOid": "934183d"
           },
           "author": "conradoplg",
-          "authorAssociation": "CONTRIBUTOR",
+          "authorAssociation": "COLLABORATOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2022-07-11T18:04:43Z",
@@ -17458,7 +17458,7 @@
       "url": "https://github.com/cfrg/draft-irtf-cfrg-frost/pull/229",
       "state": "MERGED",
       "author": "conradoplg",
-      "authorAssociation": "CONTRIBUTOR",
+      "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "This is a suggestion to make it explicit the conversion between identifiers and scalars, to reduce the chance of implementation mistakes.\r\n\r\nAnother possible approaches:\r\n\r\n- Make `derive_lagrange_coefficient` and `polynomial_evaluate` receive identifiers and convert to Scalars inside them. Makes calling them easier, but conceptually weird since those seem to be \"arithmetic\" functions\r\n- Specify that identifier are Scalars. This will require changing `encode_uint16` to receive a Scalar, and implementors would need to guarantee that identifier Scalars are in the correct range, which is awkward.",
@@ -17504,7 +17504,7 @@
             "abbreviatedOid": "e6ab1ea"
           },
           "author": "conradoplg",
-          "authorAssociation": "CONTRIBUTOR",
+          "authorAssociation": "COLLABORATOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2022-07-26T22:50:26Z",
@@ -17544,7 +17544,7 @@
             "abbreviatedOid": "e6ab1ea"
           },
           "author": "conradoplg",
-          "authorAssociation": "CONTRIBUTOR",
+          "authorAssociation": "COLLABORATOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2022-07-28T20:09:32Z",
@@ -17644,7 +17644,7 @@
             "abbreviatedOid": "e6ab1ea"
           },
           "author": "conradoplg",
-          "authorAssociation": "CONTRIBUTOR",
+          "authorAssociation": "COLLABORATOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2022-08-01T16:28:58Z",
@@ -17684,7 +17684,7 @@
             "abbreviatedOid": "e6ab1ea"
           },
           "author": "conradoplg",
-          "authorAssociation": "CONTRIBUTOR",
+          "authorAssociation": "COLLABORATOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2022-08-01T16:44:59Z",
@@ -17704,7 +17704,7 @@
             "abbreviatedOid": "e6ab1ea"
           },
           "author": "conradoplg",
-          "authorAssociation": "CONTRIBUTOR",
+          "authorAssociation": "COLLABORATOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2022-08-01T16:53:28Z",
@@ -17766,7 +17766,7 @@
       "url": "https://github.com/cfrg/draft-irtf-cfrg-frost/pull/230",
       "state": "MERGED",
       "author": "conradoplg",
-      "authorAssociation": "CONTRIBUTOR",
+      "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "This came up while reviewing the [re-randomized FROST ZIP](https://github.com/ZcashFoundation/zips/pull/3/)\r\n\r\n- Make endianess explicit in DeserializeScalar\r\n- Adjust notation to make range unambiguous; similar notation is used elsewhere in the RFC",
@@ -17821,7 +17821,7 @@
       "url": "https://github.com/cfrg/draft-irtf-cfrg-frost/pull/231",
       "state": "MERGED",
       "author": "conradoplg",
-      "authorAssociation": "CONTRIBUTOR",
+      "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "This also came up while reviewing the https://github.com/ZcashFoundation/zips/pull/3/.\r\n\r\nIt's an attempt to not force a particular implementation approach in RandomScalar while still providing implementation guidance.\r\n\r\nBut feel free to reject this if it's not a good idea.",
@@ -17987,7 +17987,7 @@
             "abbreviatedOid": "0146f62"
           },
           "author": "conradoplg",
-          "authorAssociation": "CONTRIBUTOR",
+          "authorAssociation": "COLLABORATOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2022-07-28T22:31:10Z",
@@ -18048,7 +18048,7 @@
       "url": "https://github.com/cfrg/draft-irtf-cfrg-frost/pull/234",
       "state": "MERGED",
       "author": "conradoplg",
-      "authorAssociation": "CONTRIBUTOR",
+      "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "",
@@ -18252,7 +18252,7 @@
       "url": "https://github.com/cfrg/draft-irtf-cfrg-frost/pull/238",
       "state": "MERGED",
       "author": "conradoplg",
-      "authorAssociation": "CONTRIBUTOR",
+      "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "I noticed this just after the secp256k1 PR was merged",
@@ -18339,7 +18339,7 @@
       "url": "https://github.com/cfrg/draft-irtf-cfrg-frost/pull/240",
       "state": "MERGED",
       "author": "conradoplg",
-      "authorAssociation": "CONTRIBUTOR",
+      "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "This is a minor notation issue that came up while reviewing the https://github.com/ZcashFoundation/zips/pull/3.\r\n\r\nFeel free to reject / modify if preferred.",
@@ -18394,7 +18394,7 @@
       "url": "https://github.com/cfrg/draft-irtf-cfrg-frost/pull/241",
       "state": "MERGED",
       "author": "conradoplg",
-      "authorAssociation": "CONTRIBUTOR",
+      "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "This is a minor clarity issue that came up while reviewing  https://github.com/ZcashFoundation/zips/pull/3 (this is the last one! :rofl: )\r\n\r\nFeel free to reject / modify if preferred.",
@@ -18473,7 +18473,7 @@
             "abbreviatedOid": "6698d06"
           },
           "author": "conradoplg",
-          "authorAssociation": "CONTRIBUTOR",
+          "authorAssociation": "COLLABORATOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2022-08-16T20:04:38Z",
@@ -18619,7 +18619,7 @@
             "abbreviatedOid": "acd082b"
           },
           "author": "conradoplg",
-          "authorAssociation": "CONTRIBUTOR",
+          "authorAssociation": "COLLABORATOR",
           "state": "COMMENTED",
           "body": "Just to confirm that I checked the fixed generator and it looks good.",
           "createdAt": "2022-09-13T19:12:23Z",
@@ -18639,7 +18639,7 @@
             "abbreviatedOid": "acd082b"
           },
           "author": "conradoplg",
-          "authorAssociation": "CONTRIBUTOR",
+          "authorAssociation": "COLLABORATOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2022-09-16T14:18:40Z",
@@ -18739,7 +18739,7 @@
             "abbreviatedOid": "acd082b"
           },
           "author": "conradoplg",
-          "authorAssociation": "CONTRIBUTOR",
+          "authorAssociation": "COLLABORATOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2022-09-16T16:48:03Z",
@@ -19049,7 +19049,7 @@
             "abbreviatedOid": "dfd3e48"
           },
           "author": "conradoplg",
-          "authorAssociation": "CONTRIBUTOR",
+          "authorAssociation": "COLLABORATOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2022-09-07T16:05:33Z",
@@ -19727,7 +19727,7 @@
             "abbreviatedOid": "ee068ae"
           },
           "author": "conradoplg",
-          "authorAssociation": "CONTRIBUTOR",
+          "authorAssociation": "COLLABORATOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2022-09-21T16:42:48Z",
@@ -19780,7 +19780,7 @@
             "abbreviatedOid": "be1f280"
           },
           "author": "conradoplg",
-          "authorAssociation": "CONTRIBUTOR",
+          "authorAssociation": "COLLABORATOR",
           "state": "APPROVED",
           "body": "Looks good",
           "createdAt": "2022-09-22T18:28:01Z",
@@ -19822,7 +19822,7 @@
             "abbreviatedOid": "f1000b5"
           },
           "author": "conradoplg",
-          "authorAssociation": "CONTRIBUTOR",
+          "authorAssociation": "COLLABORATOR",
           "state": "APPROVED",
           "body": "LGTM",
           "createdAt": "2022-09-19T19:35:23Z",
@@ -20560,7 +20560,7 @@
             "abbreviatedOid": "54f9024"
           },
           "author": "conradoplg",
-          "authorAssociation": "CONTRIBUTOR",
+          "authorAssociation": "COLLABORATOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2022-09-22T20:20:58Z",
@@ -20603,7 +20603,7 @@
       "url": "https://github.com/cfrg/draft-irtf-cfrg-frost/pull/288",
       "state": "MERGED",
       "author": "conradoplg",
-      "authorAssociation": "CONTRIBUTOR",
+      "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "Also fixed an inconsistent parameter name in a nearby function\r\n\r\nCloses https://github.com/cfrg/draft-irtf-cfrg-frost/issues/164",
@@ -20624,7 +20624,7 @@
       "comments": [
         {
           "author": "conradoplg",
-          "authorAssociation": "CONTRIBUTOR",
+          "authorAssociation": "COLLABORATOR",
           "body": "> Thanks! Could you please also update the reference implementation to match?\r\n\r\nOops, sure, done in c558209",
           "createdAt": "2022-09-23T14:20:51Z",
           "updatedAt": "2022-09-23T14:20:51Z"
@@ -20666,7 +20666,7 @@
       "url": "https://github.com/cfrg/draft-irtf-cfrg-frost/pull/289",
       "state": "MERGED",
       "author": "conradoplg",
-      "authorAssociation": "CONTRIBUTOR",
+      "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "Closes https://github.com/cfrg/draft-irtf-cfrg-frost/issues/173\r\n\r\nThings I'm not sure about:\r\n\r\n- Should `coefficients` in the test vectors include the secret key or not? (It currently doesn't)\r\n- In the sage code, the `coeffs=None` in `trusted_dealer_keygen` allows passing it as a parameter while the spec does not allow that, the goal is to both allow generating the test vector but also make the sage function similar to the spec function. Does this approach make sense?",
@@ -20694,7 +20694,7 @@
         },
         {
           "author": "conradoplg",
-          "authorAssociation": "CONTRIBUTOR",
+          "authorAssociation": "COLLABORATOR",
           "body": "> @conradoplg this looks good to me. Let's update the Sage code and then mark this as ready for review. Thanks!\r\n\r\nDone! The PR description was also updated.",
           "createdAt": "2022-09-26T18:11:19Z",
           "updatedAt": "2022-09-26T18:11:19Z"
@@ -20708,7 +20708,7 @@
         },
         {
           "author": "conradoplg",
-          "authorAssociation": "CONTRIBUTOR",
+          "authorAssociation": "COLLABORATOR",
           "body": "@chris-wood I'll give it a shot.\r\n\r\nTo be clear the secret key is already in the test vector, in `group_secret_key`, I'm wondering if  `coefficients` should repeat it or not.",
           "createdAt": "2022-09-26T19:55:01Z",
           "updatedAt": "2022-09-26T19:55:01Z"
@@ -20729,7 +20729,7 @@
         },
         {
           "author": "conradoplg",
-          "authorAssociation": "CONTRIBUTOR",
+          "authorAssociation": "COLLABORATOR",
           "body": "@chris-wood @dconnolly added the test vector to the formatting script and the spec",
           "createdAt": "2022-09-26T22:15:10Z",
           "updatedAt": "2022-09-26T22:15:10Z"
@@ -20839,7 +20839,7 @@
         },
         {
           "author": "conradoplg",
-          "authorAssociation": "CONTRIBUTOR",
+          "authorAssociation": "COLLABORATOR",
           "body": "@kayabaNerve AFAIK the rationale is https://eprint.iacr.org/2020/1244.pdf, only the cofactored version is compatible between single and batch verification. In the prime-group scenario of FROST maybe it's not strictly needed, but it doesn't seem to hurt... which brings me to\r\n\r\n> This leads to malleability in the challenge\r\n\r\nCould you expand on this?\r\n\r\nAbout #221, I think the issue is RFC 8032 compatibility. With that constraint, Pornin's optimization seems to be the best available.\r\n",
           "createdAt": "2022-09-27T22:08:35Z",
           "updatedAt": "2022-09-27T22:08:35Z"
@@ -20853,7 +20853,7 @@
         },
         {
           "author": "conradoplg",
-          "authorAssociation": "CONTRIBUTOR",
+          "authorAssociation": "COLLABORATOR",
           "body": "Ahhh sorry, now that I'm paying attention to the context, I see where you're coming from. I think the intention was to mention Pornin's work in DeserializeElement, to optimize the order check. I'll discuss this with the others.\r\n\r\nAbout using the cofactored verification equation, I'll need to study a bit what you've explained and will get back to you.",
           "createdAt": "2022-09-27T22:19:49Z",
           "updatedAt": "2022-09-27T22:19:49Z"
@@ -20867,7 +20867,7 @@
         },
         {
           "author": "conradoplg",
-          "authorAssociation": "CONTRIBUTOR",
+          "authorAssociation": "COLLABORATOR",
           "body": "> A given point has 8 different forms thanks to torsion, and will produce 8 different challenges. This torsion clear will have all of them resolve to the same value with the same scalar. This means a single scalar can have 8 challenges, and it's therefore malleable. While this isn't necessarily an issue, as Ed25519 sucks as-is and this creates a more supportive method of it being problematic, it doesn't seem to be the intention when it's written next to a \"torsion check\" which prevents these issues and prevents needing to use *8.\r\n\r\nSorry, I don't get this. Are you talking about R? If R is changed then it will produce a different `h` (using RFC 8032 notation) and the signature verification will fail. Am I missing something? Also per https://eprint.iacr.org/2020/1244.pdf Algorithm 2, the only check on R if it's canonical; it uses the cofactored equation and is claimed to be strongly existentially unforgeable.\r\n\r\n(I agree the cofactored equation might not be _needed_, but I'm trying to understand if it's wrong using it)",
           "createdAt": "2022-09-28T17:37:30Z",
           "updatedAt": "2022-09-28T17:37:30Z"
@@ -20957,7 +20957,7 @@
             "abbreviatedOid": "8b16338"
           },
           "author": "conradoplg",
-          "authorAssociation": "CONTRIBUTOR",
+          "authorAssociation": "COLLABORATOR",
           "state": "APPROVED",
           "body": "Should `DeserializeScalar` also mention that the input must be canonical?\r\n\r\nBut it looks goods either way",
           "createdAt": "2022-09-26T19:32:11Z",
@@ -20999,7 +20999,7 @@
             "abbreviatedOid": "de9d4a3"
           },
           "author": "conradoplg",
-          "authorAssociation": "CONTRIBUTOR",
+          "authorAssociation": "COLLABORATOR",
           "state": "CHANGES_REQUESTED",
           "body": "Looks good, there's just a small detail to fix",
           "createdAt": "2022-09-26T19:34:15Z",
@@ -21257,7 +21257,7 @@
             "abbreviatedOid": "c196f22"
           },
           "author": "conradoplg",
-          "authorAssociation": "CONTRIBUTOR",
+          "authorAssociation": "COLLABORATOR",
           "state": "APPROVED",
           "body": "Yep that's much better, thanks!",
           "createdAt": "2022-09-27T12:54:39Z",
@@ -21438,7 +21438,7 @@
         },
         {
           "author": "conradoplg",
-          "authorAssociation": "CONTRIBUTOR",
+          "authorAssociation": "COLLABORATOR",
           "body": "Thanks a lot for working on this. I think it's super interesting (after finally understanding it :sweat_smile: ), and I agree it's more efficient, but we decided it's too much of a scope creep on a RFC that is near completion. Hopefully [this PR](https://github.com/cfrg/draft-irtf-cfrg-frost/pull/299) should solve the misunderstanding with the Pornin's work citation.\r\n\r\nLike we discussed, this optimization can be added by implementers in a way that produces compatible signatures; it just breaks compatibility with in-protocol messages but that may be a acceptable compromise to obtain increased performance.\r\n\r\n\r\n",
           "createdAt": "2022-09-28T22:34:46Z",
           "updatedAt": "2022-09-28T22:34:46Z"
@@ -21460,7 +21460,7 @@
       "url": "https://github.com/cfrg/draft-irtf-cfrg-frost/pull/299",
       "state": "MERGED",
       "author": "conradoplg",
-      "authorAssociation": "CONTRIBUTOR",
+      "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "Thanks @kayabaNerve for pointing this out.\r\n\r\nI also added some text that was present in Ed25519 but not in Ed448",
@@ -21619,7 +21619,7 @@
             "abbreviatedOid": "fa84c60"
           },
           "author": "conradoplg",
-          "authorAssociation": "CONTRIBUTOR",
+          "authorAssociation": "COLLABORATOR",
           "state": "APPROVED",
           "body": "LGTM!",
           "createdAt": "2022-10-04T17:59:20Z",
@@ -21695,7 +21695,7 @@
       "url": "https://github.com/cfrg/draft-irtf-cfrg-frost/pull/303",
       "state": "MERGED",
       "author": "conradoplg",
-      "authorAssociation": "CONTRIBUTOR",
+      "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "This is just a suggestion.\r\n\r\nI found `DeserializeError` odd since it's not defined anywhere and a similar notation is not used anywhere else.\r\n",
@@ -22078,7 +22078,7 @@
       "url": "https://github.com/cfrg/draft-irtf-cfrg-frost/pull/314",
       "state": "MERGED",
       "author": "conradoplg",
-      "authorAssociation": "CONTRIBUTOR",
+      "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "This is not a big deal, not sure if we can still can get some changes in\r\n\r\nWhile implementing Ed448 support I noticed that the length of SHAKE256 in the Ed448 ciphersuite is not explicit. You can deduce it from the context but I thought this makes it clearer.",
@@ -22099,7 +22099,7 @@
       "comments": [
         {
           "author": "conradoplg",
-          "authorAssociation": "CONTRIBUTOR",
+          "authorAssociation": "COLLABORATOR",
           "body": "> Good catch -- I think this is the only variable-length output hash we have. I wonder if we should make clear in the ciphersuites requirements section that each hash function produces a fixed-length output?\r\n\r\n@chris-wood I think it's not strictly required but it can makes things clearer, I gave it a shot in f3f06d7",
           "createdAt": "2022-12-02T17:37:23Z",
           "updatedAt": "2022-12-02T17:37:23Z"
@@ -22179,7 +22179,7 @@
       "url": "https://github.com/cfrg/draft-irtf-cfrg-frost/pull/347",
       "state": "MERGED",
       "author": "conradoplg",
-      "authorAssociation": "CONTRIBUTOR",
+      "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "Closes https://github.com/cfrg/draft-irtf-cfrg-frost/issues/338",
@@ -22886,7 +22886,7 @@
             "abbreviatedOid": "f0046ce"
           },
           "author": "armfazh",
-          "authorAssociation": "NONE",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "APPROVED",
           "body": "lgtm",
           "createdAt": "2022-12-15T11:57:48Z",
